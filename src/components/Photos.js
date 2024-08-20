@@ -84,7 +84,7 @@ export default function WorkPhotos() {
 
     return (
         <>
-        <h1 className='text-center'>Work Samples</h1>
+        <h1 className='text-center'>Photo Gallery</h1>
         <ImageList cols={3} className='work-photos-grid'>
             {itemData.map((item) => (
                 <ImageListItem key={item.img}>

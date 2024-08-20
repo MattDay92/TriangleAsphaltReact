@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Link, Button, Element, Events, scroller, animateScroll as scroll, scrollSpy } from 'react-scroll';
 import Background from '../components/images/TestBackground.jpg'
 import Collage1 from '../components/images/Collage1.svg'
 import Collage2 from '../components/images/Collage2.svg'
@@ -9,80 +8,65 @@ import WorkPhotos from '../components/Photos.js'
 import JobPostings from '../components/JobPostings.js'
 
 
-export default function Home() {
-    const [zoomLevel, setZoomLevel] = useState(1)
-    const myDivRef = useRef(null); 
+export default function Home({info}) {
+    const [zoom, setZoom] = useState(1)
 
-    const scrollToElement = (name) => {
-        scroller.scrollTo(name, {
-            duration: 100,
-            delay: 100,
-            smooth: true,
-            offset: 50, // Scrolls to element + 50 pixels down the page
-            // ... other options
-          });
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    const fullHeight = () => {
+        let pageHeight = document.getElementById("fullpage").offsetHeight
+
+        let position = window.scrollY
+
+        setZoom(1 + position / pageHeight * 3)
+    }
+
+    const updateZoom = () => {
+        document.getElementById("background-img").style.scale = `${zoom}`
     }
 
     useEffect(() => {
-        if(window.scrollY > 0){
-            scrollToElement('about')
-        }
-    }, [])
+        const handleScroll = () => {
+            fullHeight();
+        };
 
-    // const handleZoom = () => {
-    //     const windowSize = window.innerHeight
-    //     const placement = window.scrollY
+        window.addEventListener('scroll', handleScroll);
 
-    //     const newZoom = (placement/windowSize)/1
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
-    //     setZoomLevel(newZoom)
-    // }
-
-    // useEffect(() => {
-    //     const myDiv = myDivRef.current;
-    //     if (myDiv) {
-    //       myDiv.style.transform = `scale(${zoomLevel})`;
-    //     }
-    
-    //     // Clean up the event listener on component unmount
-    //     return () => {
-    //       window.removeEventListener('scroll', handleZoom);
-    //     };
-    //   }, [zoomLevel]); // Include zoomLevel as a dependency to update the effect when it changes
-    
-    //   useEffect(() => {
-    //     window.addEventListener('scroll', handleZoom);
-    
-    //     // Clean up the event listener on component unmount
-    //     return () => {
-    //       window.removeEventListener('scroll', handleZoom);
-    //     };
-    //   }, []); // Empty dependency array ensures this runs only once on mount
-
-
+    useEffect(() => {
+        updateZoom()
+    }, [zoom])
 
     return (
-        <div>
-            <img ref={myDivRef} className='background-img' src={Background} />
+        <div id='fullpage'>
+            <img id='background-img' src={Background} />
             <nav id="nav">
-                <p class="nav-info">(765) 482-5701</p>
+                <div className='nav-info'>
+                    <p className='py-0 my-0'>(765) 482-5701</p>
+                </div>
                 <div id="logo">
                     <img id="nav-logo-small" src={TriangleBanner} />
                 </div>
-                <div class="nav-info">
-                    <p>Proudly serving Central Indiana since 1961</p>
+                <div className="nav-info">
+                    <p className='py-0 my-0'>Proudly serving Central Indiana since 1961</p>
                 </div>
             </nav>
 
 
-            <button onClick={() => {scroll.scrollToTop()}} id="BackToTopBTN">Back to Top</button>
+            <button onClick={scrollToTop} id="BackToTopBTN">Back to Top</button>
 
             <a href="https://www.linkedin.com/company/triangle-asphalt-paving-corp/" target="_blank" id="LinkedInBTN"><i class="fa-brands fa-linkedin"></i></a>
 
             <div id="banner">
                 <img class="bannerIMG" src={TriangleBanner} />
             </div>
-            <Element name='about'><div id="about">
+            <div id="about">
                 <img class="about-IMG" src={Collage1} />
                 <div class="about-info">
                     <h1>Our Story</h1>
@@ -97,7 +81,6 @@ export default function Home() {
                         cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
                 </div>
             </div>
-            </Element>
             <div id="SJ">
                 <div class="SJ-info">
                     <h1>S&J Construction</h1>
@@ -116,7 +99,7 @@ export default function Home() {
 
             <WorkPhotos />
 
-            <JobPostings />
+            <JobPostings info={info} />
 
             <div id="contact">
                 <div>
@@ -127,7 +110,7 @@ export default function Home() {
                     <input className='form-control my-2' id="exampleFormControlInput1"></input>
                     <label className='form-label' for="exampleFormControlInput1">Inquiry</label>
                     <input className='form-control my-2' id="exampleFormControlInput1"></input>
-                    <button className='btn btn-success my-2'>Submit</button>
+                    <button className='contact-btn my-2'>Submit</button>
                 </div>
             </div>
 

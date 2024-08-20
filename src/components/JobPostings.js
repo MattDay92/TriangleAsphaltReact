@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function JobPostings() {
+export default function JobPostings({info}) {
     const jobInfo =
         [
             {
-                name: 'Laborer',
+                name: 'Job Title 1',
                 info: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolor',
                 link: 'https://www.linkedin.com'
             },
@@ -21,15 +21,19 @@ export default function JobPostings() {
         <div className='job-postings'>
             <div>
                 <h1 className='text-center'>Employment Opportunities</h1>
-                <div className='job-postings-div'>
-                    {jobInfo.map((job) => (
-                        <div className='job-card'>
-                            <h2>{job.name}</h2>
-                            <p>{job.info}</p>
-                            <a className='btn btn-primary' href={job.link}>Apply</a>
-                        </div>
-                    ))}
-                </div>
+                {info ? <div className='job-postings-div'>
+                {info.map((job) => (
+                    <div className='job-card'>
+                        <h2>{job.title}</h2>
+                        <p>{job.description}</p>
+                        <p>Job Posted on {job.date}</p>
+                        <a className='btn btn-primary' href={job.link} target='_blank'>Apply</a>
+                    </div>
+                )
+                )}
+            </div>
+                :
+                <></>}
             </div>
         </div>
     )

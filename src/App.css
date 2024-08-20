@@ -7,30 +7,20 @@ html, body, *{
 body{
     /* background: linear-gradient(130deg, rgb(183, 183, 183), rgb(40, 40, 40) 100%);; */
     color: white;
+    background: black;
 }
 
-.background-img{
+#background-img{
     width: 100vw;
-    z-index: -100 !important;
+    height: 100vh;
+    object-fit: cover;
     position: fixed;
+    z-index: -10;
     opacity: 0.5;
 }
 
 h1{
     font-size: 5vw;
-}
-
-.background-div{
-    position: fixed;
-    opacity: 0.4;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    width: 50vw;
-}
-
-.background-IMG{
-    width: 100%;
 }
 
 #BackToTopBTN, #LinkedInBTN{
@@ -51,6 +41,16 @@ h1{
     color: white;
 }
 
+@media (max-width: 425px) {
+    #BackToTopBTN{
+        display: none;
+    }
+
+    #LinkedInBTN{
+        font-size: 2rem !important;
+    }
+}
+
 #LinkedInBTN{
     left: 5%;
     bottom: 5%;
@@ -58,7 +58,7 @@ h1{
     color: white;
 }
 
-#LinkedInBTN:hover{
+#LinkedInBTN:hover, #BackToTopBTN:hover{
     color: rgb(255,229,122);
 }
 
@@ -207,6 +207,8 @@ h1{
     height: fit-content;
     min-height: 30vh;
     background: white;
+    color: black;
+    text-align: center;
     border-radius: 10%;
     margin: 2vw;
 }
@@ -236,4 +238,21 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contact-btn{
+    z-index: 100;
+    padding: 15px;
+    font-weight: 700;
+    border-radius: 10%;
+    opacity: 1;
+    transition: 0.5s;
+    background: black;
+    color: white;
+    border: none;
+}
+
+.contact-btn:hover{
+    color: rgb(255,229,122);
+    background: black;
 }
