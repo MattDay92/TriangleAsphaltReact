@@ -83,7 +83,7 @@ export default function Home({info}) {
             </div>
             <div id="SJ">
                 <div class="SJ-info">
-                    <h1>S&J Construction</h1>
+                    <h1>Daytime Trucking</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolore
                         libero sapiente rerum similique soluta odit vitae natus amet ipsa velit
                         cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
@@ -100,6 +100,7 @@ export default function Home({info}) {
             <WorkPhotos />
 
             <JobPostings info={info} />
+
 
             <div id="contact">
                 <div>

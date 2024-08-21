@@ -15,14 +15,14 @@ function App() {
     onValue(jobInfo, (snapshot) => {
       const data = snapshot.val()
 
-      const job = []
-      Object.values(data).forEach(value => {
-        job.push(value)
+      console.log(data)
+      let jobData = []
+      Object.entries(data).forEach(([key, value]) => {
+        jobData.push([key, value])
       });
       
-
-      if (job) {
-        setInfo(job);
+      if (jobData) {
+        setInfo(jobData)
       }
     })
   }
