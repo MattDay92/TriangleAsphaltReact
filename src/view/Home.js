@@ -6,6 +6,7 @@ import TriangleBanner from '../components/images/TriangleAsphaltBannerWhite.svg'
 import TitlebarImageList from '../components/Photos.js'
 import WorkPhotos from '../components/Photos.js'
 import JobPostings from '../components/JobPostings.js'
+import InstagramEmbed from '../components/Instagram.js'
 
 
 export default function Home({info}) {
@@ -113,6 +114,7 @@ export default function Home({info}) {
                     <input className='form-control my-2' id="exampleFormControlInput1"></input>
                     <button className='contact-btn my-2'>Submit</button>
                 </div>
+                <InstagramEmbed />
             </div>
 
 

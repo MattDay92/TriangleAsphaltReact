@@ -229,14 +229,26 @@ h1{
     margin-right: auto;
 }
 
+/* --------------------------INSTAGRAM----------------------------- */
+
+.instagram-div{
+    display: flex;
+    justify-content: center;
+}
+
+.instagram-media{
+    max-width: 400px;
+    width: 30vw;
+}
+
 /* ---------------------------CONTACT------------------------------ */
 
 #contact{
     height: 100vh;
-    width: 80vw;
+    width: 100vw;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 

@@ -24,10 +24,10 @@ export default function JobPostings({info}) {
                 {info ? <div className='job-postings-div'>
                 {info.map((job) => (
                     <div className='job-card'>
-                        <h2>{job.title}</h2>
-                        <p>{job.description}</p>
+                        <h2>{job[1].title}</h2>
+                        <p>{job[1].description}</p>
                         <p>Job Posted on {job.date}</p>
-                        <a className='btn btn-primary' href={job.link} target='_blank'>Apply</a>
+                        <a className='btn btn-primary' href={job[1].link} target='_blank'>Apply</a>
                     </div>
                 )
                 )}
