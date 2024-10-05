@@ -7,6 +7,7 @@ import TitlebarImageList from '../components/Photos.js'
 import WorkPhotos from '../components/Photos.js'
 import JobPostings from '../components/JobPostings.js'
 import InstagramEmbed from '../components/Instagram.js'
+import ContactForm from '../components/ContactForm.js'
 
 
 export default function Home({info}) {
@@ -104,7 +105,7 @@ export default function Home({info}) {
 
 
             <div id="contact">
-                <div>
+                {/* <div>
                     <h1>Contact</h1>
                     <label className='form-label' for="exampleFormControlInput1">Name</label>
                     <input className='form-control my-2' id="exampleFormControlInput1"></input>
@@ -113,7 +114,8 @@ export default function Home({info}) {
                     <label className='form-label' for="exampleFormControlInput1">Inquiry</label>
                     <input className='form-control my-2' id="exampleFormControlInput1"></input>
                     <button className='contact-btn my-2'>Submit</button>
-                </div>
+                </div> */}
+                <ContactForm />
                 <InstagramEmbed />
             </div>
 

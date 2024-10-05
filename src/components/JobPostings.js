@@ -26,7 +26,7 @@ export default function JobPostings({info}) {
                     <div className='job-card'>
                         <h2>{job[1].title}</h2>
                         <p>{job[1].description}</p>
-                        <p>Job Posted on {job.date}</p>
+                        <p>Job Posted on {job[1].date}</p>
                         <a className='btn btn-primary' href={job[1].link} target='_blank'>Apply</a>
                     </div>
                 )

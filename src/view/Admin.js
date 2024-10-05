@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { getDatabase, push, ref as refDB, set, remove, get } from 'firebase/database'
-
+import EditJob from '../components/EditJob'
 
 export default function Admin({ info }) {
+    const [editKey, setEditKey] = useState('')
 
     const updateInfo = (event) => {
         event.preventDefault()
@@ -32,8 +33,17 @@ export default function Admin({ info }) {
         remove(removeRef)
     }
 
+    const showEditJob = (key) => {
+        setEditKey(key)
+
+        document.getElementById('edit-job').style.display = 'block'
+    }
+
     return (
         <div id='fullpage'>
+
+            <EditJob info={info} editKey={editKey} />
+
             <h1 className='my-5 text-center'>Admin Page</h1>
 
             <h2 className='text-center '>Insert New Job</h2>
@@ -50,7 +60,8 @@ export default function Admin({ info }) {
                         <h2>{job[1].title}</h2>
                         <p>{job[1].description}</p>
                         <p>Job Posted on {job[1].date}</p>
-                        <a className='btn btn-danger' onClick={() => {removeJob(job[0])}}>Remove Job</a>
+                        <a className='btn btn-danger' onClick={() => { removeJob(job[0]) }}>Remove Job</a>
+                        {/* <a className='btn btn-primary' onClick={() => { showEditJob(job[0]) }}>Remove Job</a> */}
                     </div>
                 )
                 )}
