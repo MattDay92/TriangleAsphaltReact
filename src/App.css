@@ -23,6 +23,19 @@ h1{
     font-size: 4.5vw;
 }
 
+.btn{
+    background: rgb(214, 191, 86);
+    border: 0;
+}
+
+.btn:hover {
+    background: rgb(176, 157, 71);
+}
+
+.btn:active {
+    background-color: black !important;
+}
+
 #BackToTopBTN, #LinkedInBTN{
     position: fixed;
     z-index: 100;
@@ -37,7 +50,6 @@ h1{
     right: 5%;
     bottom: 5%;
     background: black;
-    /* color: rgb(255,229,122); */
     color: white;
 }
 
@@ -59,7 +71,7 @@ h1{
 }
 
 #LinkedInBTN:hover, #BackToTopBTN:hover{
-    color: rgb(255,229,122);
+    color: rgb(214, 191, 86);
 }
 
 
@@ -155,6 +167,13 @@ h1{
 .about-info{
     width: 40vw;
     text-align: center;
+}
+
+.about-paragraph{
+    border: 1px solid rgb(120, 120, 120);
+    padding: 15px;
+    height: 50vh;
+    overflow-y: scroll ;
 }
 
 
