@@ -2,6 +2,7 @@ html, body, *{
     margin: 0;
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
+    overflow-x: hidden;
 }
 
 body{
@@ -21,6 +22,12 @@ body{
 
 h1{
     font-size: 4.5vw;
+}
+
+@media (max-width: 425px) {
+    h1 {
+        font-size: 10vw;
+    }
 }
 
 .btn{
@@ -95,12 +102,6 @@ h1{
     z-index: 100;
 }
 
-.nav-link{
-    font-size: 1.5vw;
-    text-decoration: none;
-    color: white;
-}
-
 .nav-info{
     width: 15vw;
     text-align: center;
@@ -126,6 +127,12 @@ h1{
     transition: 0.5s;
 }
 
+@media (max-width: 425px) {
+    .nav-info {
+        display: none;
+    }
+}
+
 
 /* -------------------------------BANNER------------------------------- */
 
@@ -143,6 +150,22 @@ h1{
     position: absolute;
     width: 45vw;
     left: 10vw;
+}
+
+@media (max-width: 425px) {
+    .bannerIMG {
+        width: 100vw;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .bannerIMG {
+        width: 80vw;
+        left: 10vw;
+        right: 10vw;
+    }
 }
 
 
@@ -176,6 +199,21 @@ h1{
     overflow-y: scroll ;
 }
 
+@media (max-width: 768px) {
+    #about {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .about-IMG {
+        width: 80vw;
+    }
+
+    .about-info {
+        width: 80vw;
+    }
+}
+
 
 
 /* ---------------------------S&J------------------------------- */
@@ -201,15 +239,40 @@ h1{
     width: 40vw;
 }
 
+@media (max-width: 768px) {
+    #SJ {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .SJ-IMG {
+        width: 80vw;
+    }
+
+    .SJ-info {
+        width: 80vw;
+    }
+}
+
 /* ---------------------------Work Photos------------------------ */
 .photo-gallery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
 }
 
 .work-photos-grid{
     height: 60vh;
     width: 60vw;
-    margin: auto;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .work-photos-grid {
+        width: 80vw;
+    }
 }
 
 /* --------------------------Job Postings------------------------ */
@@ -251,6 +314,12 @@ h1{
     margin-right: auto;
 }
 
+@media (max-width: 425px) {
+    .job-card {
+        width: 80%;
+    }
+}
+
 /* -------------------------ADMIN------------------------------- */
 
 #edit-job{
@@ -286,15 +355,39 @@ h1{
     width: 30vw;
 }
 
+@media (max-width: 425px) {
+    .instagram-div {
+        min-height: 100vh;
+        align-items: center;
+    }
+}
+
 /* ---------------------------CONTACT------------------------------ */
 
 #contact{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     margin: auto;
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+@media (max-width: 425px) {
+    #contact {
+        flex-direction: column;
+    }
+
+    .form-control {
+        width: 80vw !important;
+    }
+
+    .contact-form-div {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .contact-btn{

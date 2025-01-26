@@ -67,34 +67,34 @@ export default function WorkPhotos() {
             cols: 2,
         },
     ]
-    ;
-    
+        ;
+
 
     return (
         <div className='photo-gallery'>
-        <h1 className='text-center'>Photo Gallery</h1>
-        <ImageList cols={3} className='work-photos-grid'>
-            {itemData.map((item) => (
-                <ImageListItem key={item.img}>
-                    <img
-                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        src={`${item.img}?w=248&fit=crop&auto=format`}
-                        alt={item.title}
-                        loading="lazy"
-                    />
-                    <ImageListItemBar
-                        title={item.title}
-                        actionIcon={
-                            <IconButton
-                                sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
-                                aria-label={`info about ${item.title}`}
-                            >
-                            </IconButton>
-                        }
-                    />
-                </ImageListItem>
-            ))}
-        </ImageList>
+            <h1 className='text-center'>Photo Gallery</h1>
+            <ImageList cols={3} className='work-photos-grid'>
+                {itemData.map((item) => (
+                    <ImageListItem key={item.img}>
+                        <img
+                            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${item.img}?w=248&fit=crop&auto=format`}
+                            alt={item.title}
+                            loading="lazy"
+                        />
+                        <ImageListItemBar
+                            title={item.title}
+                            actionIcon={
+                                <IconButton
+                                    sx={{ color: 'rgba(255, 255, 255, 0.54)' }}
+                                    aria-label={`info about ${item.title}`}
+                                >
+                                </IconButton>
+                            }
+                        />
+                    </ImageListItem>
+                ))}
+            </ImageList>
 
         </div>
     );

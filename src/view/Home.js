@@ -55,7 +55,7 @@ export default function Home({ info }) {
                 <div id="logo">
                     <img id="nav-logo-small" src={TriangleBanner} />
                 </div>
-                <div className="nav-info">
+                <div className="nav-info nav-info-2">
                     <p className='py-0 my-0'>Proudly serving Central Indiana since 1961</p>
                 </div>
             </nav>
@@ -68,6 +68,7 @@ export default function Home({ info }) {
             <div id="banner">
                 <img class="bannerIMG" src={TriangleBanner} />
             </div>
+
             <div id="about">
                 <img class="about-IMG" src={Collage1} />
                 <div class="about-info">
@@ -118,16 +119,6 @@ export default function Home({ info }) {
 
 
             <div id="contact">
-                {/* <div>
-                    <h1>Contact</h1>
-                    <label className='form-label' for="exampleFormControlInput1">Name</label>
-                    <input className='form-control my-2' id="exampleFormControlInput1"></input>
-                    <label className='form-label' for="exampleFormControlInput1">Email</label>
-                    <input className='form-control my-2' id="exampleFormControlInput1"></input>
-                    <label className='form-label' for="exampleFormControlInput1">Inquiry</label>
-                    <input className='form-control my-2' id="exampleFormControlInput1"></input>
-                    <button className='contact-btn my-2'>Submit</button>
-                </div> */}
                 <ContactForm />
                 <InstagramEmbed />
             </div>

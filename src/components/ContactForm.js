@@ -38,8 +38,8 @@ function ContactForm() {
   };
 
   return (
-    <div>
-      <h2>Contact Us</h2>
+    <div className='contact-form-div'>
+      <h1 className='text-center'>Contact Us</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
