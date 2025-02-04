@@ -8,8 +8,8 @@ import IconButton from '@mui/material/IconButton';
 export default function WorkPhotos() {
     const itemData = [
         {
-            img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-            title: 'Breakfast',
+            img: 'https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2FTestPhoto1?alt=media&token=470b630b-cbd2-49cd-9b1b-78cf83b35a45',
+            title: 'Test',
             rows: 2,
             cols: 2,
             featured: true,

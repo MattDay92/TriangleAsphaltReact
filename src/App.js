@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './view/Home';
 import Admin from './view/Admin';
 
-function App() {
+function App({storage}) {
   const [info, setInfo] = useState([])
 
   const getInfo = () => {
@@ -36,7 +36,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path={'/'} element={<Home info={info} />} />
-          <Route exact path={'/admin'} element={<Admin info={info}/>} />
+          <Route exact path={'/admin'} element={<Admin info={info} storage={storage} />} />
         </Routes>
       </BrowserRouter>
     </div>
