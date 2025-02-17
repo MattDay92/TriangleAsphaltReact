@@ -14,7 +14,7 @@ const InstagramEmbed = () => {
 
     return (
         <div className="instagram-div">
-            <blockquote className="instagram-media" data-instgrm-permalink="https://www.instagram.com/disneyfoodblog/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" />
+            <blockquote className="instagram-media" data-instgrm-permalink="https://www.instagram.com/triangleasphalt/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" />
         </div>
     );
 };

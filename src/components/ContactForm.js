@@ -4,22 +4,34 @@ function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: '',
+    inquiryType: [],
+    message: ''
   });
 
   const [responseMessage, setResponseMessage] = useState('');
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: checked
+          ? [...prevFormData[name], value] // Add value if checked
+          : prevFormData[name].filter((item) => item !== value), // Remove if unchecked
+      }));
+    } else {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(formData)
+    console.log("Submitting:", formData);
 
     try {
       const response = await fetch('https://triangle-theta.vercel.app/api/send-email', {
@@ -31,9 +43,9 @@ function ContactForm() {
       });
 
       const result = await response.json();
-      setResponseMessage(result.message);
+      alert(result.message);
     } catch (error) {
-      setResponseMessage('An error occurred while sending the email.');
+      console.error("Error:", error);
     }
   };
 
@@ -49,6 +61,24 @@ function ContactForm() {
         <label>
           Email:
           <input type="email" className='form-control' name="email" value={formData.email} onChange={handleChange} required />
+        </label><br />
+
+        <label>
+          Inquiry Type:
+          <div>
+            <input type="checkbox" id="option1" name="inquiryType" onChange={handleChange} value="Request Quote" checked={formData.inquiryType.includes("Request Quote")} />
+            <label htmlFor="option1">Request Quote</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="option2" name="inquiryType" onChange={handleChange} value="Employment" checked={formData.inquiryType.includes("Employment")} />
+            <label htmlFor="option2">Employment</label>
+          </div>
+
+          <div>
+            <input type="checkbox" id="option3" name="inquiryType" onChange={handleChange} value="Other" checked={formData.inquiryType.includes("Other")} />
+            <label htmlFor="option3">Other</label>
+          </div>
         </label><br />
 
         <label>

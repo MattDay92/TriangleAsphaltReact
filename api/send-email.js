@@ -11,7 +11,10 @@ export default async function handler(req, res) {
         return res.status(200).end();
     }
     if (req.method === 'POST') {
-        const { name, email, message } = req.body;
+        const { name, email, inquiryType, message } = req.body;
+
+        const inquiryText = Array.isArray(inquiryType) ? inquiryType.join(", ") : inquiryType;
+
 
         // Check if all fields are present
         if (!name || !email || !message) {
@@ -31,7 +34,7 @@ export default async function handler(req, res) {
             from: email, // From the sender's email
             to: 'mattdaymusic10@gmail.com', // Your email address
             subject: 'New Contact Form Submission',
-            text: `You have a new message from ${name} (${email}):\n\n${message}`,
+            text: `You have a new message from ${name} (${email}):\n\n ${inquiryType}\n\n${message}`,
         };
 
         // Second email: Confirmation to the user
@@ -39,7 +42,7 @@ export default async function handler(req, res) {
             from: 'mattdaymusic10@gmail.com', // Your email address
             to: email, // To the user who submitted the form
             subject: 'Confirmation of Your Message',
-            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
+            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\n${inquiryType}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
         };
 
         // Send the email to the admin

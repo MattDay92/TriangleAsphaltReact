@@ -17,57 +17,84 @@ export default function Home({ info }) {
         window.scrollTo({ top: 0, behavior: "smooth" })
     }
 
-    const fullHeight = () => {
-        let pageHeight = document.getElementById("fullpage").offsetHeight
+    const scrollToSection = (section) => {
+        const whatSection = document.getElementById(section).offsetTop
 
+        window.scrollTo({ top: whatSection, behavior: "smooth" })
+    }
+
+    const showNavLogo = () => {
+        const navLogo = document.getElementById("nav-logo")
+        const logoSection = document.getElementById("bannerIMG").offsetTop
         let position = window.scrollY
 
-        setZoom(1 + position / pageHeight * 3)
-    }
-
-    const updateZoom = () => {
-        document.getElementById("background-img").style.scale = `${zoom}`
+        if (position > logoSection) {
+            navLogo.classList.add("show")
+        } else {
+            navLogo.classList.remove("show")
+        }
     }
 
     useEffect(() => {
-        const handleScroll = () => {
-            fullHeight();
-        };
-
-        window.addEventListener('scroll', handleScroll);
-
+        window.addEventListener("scroll", showNavLogo);
+        
+        // Cleanup function to remove event listener
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener("scroll", showNavLogo);
         };
-    }, []);
+      }, []);
 
-    useEffect(() => {
-        updateZoom()
-    }, [zoom])
+    // const fullHeight = () => {
+    //     let pageHeight = document.getElementById("fullpage").offsetHeight
+
+    //     let position = window.scrollY
+
+    //     setZoom(1 + position / pageHeight * 3)
+    // }
+
+    // const updateZoom = () => {
+    //     document.getElementById("background-img").style.scale = `${zoom}`
+    // }
+
+    // useEffect(() => {
+    //     const handleScroll = () => {
+    //         fullHeight();
+    //     };
+
+    //     window.addEventListener('scroll', handleScroll);
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //     };
+    // }, []);
+
+    // useEffect(() => {
+    //     updateZoom()
+    // }, [zoom])
 
     return (
         <div id='fullpage'>
             <img id='background-img' src={Background} />
             <nav id="nav">
                 <div className='nav-info'>
-                    <p className='py-0 my-0'>(765) 482-5701</p>
+                    <a onClick={() => { scrollToSection("careers") }} className='py-0 my-0'>Career Opportunities</a>
                 </div>
                 <div id="logo">
-                    <img id="nav-logo-small" src={TriangleBanner} />
+                    <img id="nav-logo" className='nav-logo' src={TriangleBanner} />
                 </div>
                 <div className="nav-info nav-info-2">
-                    <p className='py-0 my-0'>Proudly serving Central Indiana since 1961</p>
+                    <a onClick={() => { scrollToSection("contact") }} className='py-0 my-0'>Contact Us</a>
                 </div>
             </nav>
-
 
             <button onClick={scrollToTop} id="BackToTopBTN">Back to Top</button>
 
             <a href="https://www.linkedin.com/company/triangle-asphalt-paving-corp/" target="_blank" id="LinkedInBTN"><i class="fa-brands fa-linkedin"></i></a>
 
             <div id="banner">
-                <img class="bannerIMG" src={TriangleBanner} />
+                <img class="bannerIMG" id='bannerIMG' src={TriangleBanner} />
             </div>
+
 
             <div id="about">
                 <img class="about-IMG" src={Collage1} />
@@ -97,7 +124,8 @@ export default function Home({ info }) {
                     </article>
                 </div>
             </div>
-            <div id="SJ">
+
+            {/* <div id="SJ">
                 <div class="SJ-info">
                     <h1>Daytime Trucking</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolore
@@ -111,11 +139,11 @@ export default function Home({ info }) {
                         cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
                 </div>
                 <img class="SJ-IMG" src={Collage1} />
+            </div> */}
+
+            <div id='careers'>
+                <JobPostings info={info} />
             </div>
-
-            <WorkPhotos />
-
-            <JobPostings info={info} />
 
 
             <div id="contact">

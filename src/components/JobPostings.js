@@ -20,7 +20,7 @@ export default function JobPostings({info}) {
     return (
         <div className='job-postings'>
             <div>
-                <h1 className='text-center'>Employment Opportunities</h1>
+                <h1 className='text-center'>Career Opportunities</h1>
                 {info ? <div className='job-postings-div'>
                 {info.map((job) => (
                     <div className='job-card'>
