@@ -108,11 +108,63 @@ export default function Admin({ info, storage }) {
 
             <h1 className='my-5 text-center'>Admin Page</h1>
 
-            <form className='admin-col' >
-                <h3>Test Photo #1</h3>
-                <div className='w-50 m-auto'><img className='w-100' id='TestPhoto1' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2FTestPhoto1?alt=media&token=470b630b-cbd2-49cd-9b1b-78cf83b35a45' /></div>
-                <input type='file' name='TestPhoto1' onChange={handleFileChange} />
-            </form>
+            <div className='admin-photos'>
+                <h3>Our Story 1</h3>
+                <div className='admin-photos-row w-100'>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo1' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto1?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' /></div>
+                        <input type='file' name='photo1' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo2' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto2?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo2' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo3' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto3?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo3' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo4' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto4?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo4' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo5' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto5?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo5' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo6' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto6?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo6' onChange={handleFileChange} />
+                    </form>
+                </div>
+                <h3>Our Story 2</h3>
+                <div className='admin-photos-row'>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo7' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto7?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo7' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo8' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo8' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo9' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto9?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo9' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo10' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto10?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo10' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo11' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo11' onChange={handleFileChange} />
+                    </form>
+                    <form >
+                        <div className='admin-photo-div'><img className='w-100' id='photo12' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
+                        <input type='file' name='photo12' onChange={handleFileChange} />
+                    </form>
+                </div>
+
+            </div>
 
             <h2 className='text-center '>Insert New Job</h2>
             <form className='mb-5 w-75 m-auto text-center' onSubmit={updateInfo}>

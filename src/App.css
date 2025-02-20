@@ -27,7 +27,9 @@ a:hover {
     object-fit: cover;
     position: fixed;
     z-index: -10;
-    opacity: 0.5;
+    opacity: 0.6;
+    transition: opacity 0.1s ease-in-out; /* Smooth opacity change */
+
 }
 
 h1{
@@ -121,6 +123,14 @@ h1{
     text-align: center;
 }
 
+.nav-info-1 {
+    margin-left: 10vw;
+}
+
+.nav-info-2 {
+    margin-right: 10vw;
+}
+
 #logo{
     display: flex;
     justify-content: center;
@@ -129,9 +139,10 @@ h1{
 }
 
 .nav-logo{
-    height: 100%;
+    height: 80%;
     opacity: 0;
     transition: 0.5s;
+    margin-top: 5px;
 }
 
 .nav-logo.show{
@@ -159,7 +170,7 @@ h1{
 
 .bannerIMG{
     position: absolute;
-    width: 45vw;
+    width: 35vw;
     left: 10vw;
 }
 
@@ -186,16 +197,22 @@ h1{
 
 
 #about{
-    height: 100vh;
-    width: 80vw;
+    min-height: 100vh;
+    width: 85vw;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .about-IMG{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 40vw;
+    height: 50vh;
 }
 
 .about-info{
@@ -203,11 +220,36 @@ h1{
     text-align: center;
 }
 
-.about-paragraph{
-    border: 1px solid rgb(120, 120, 120);
-    padding: 15px;
-    height: 50vh;
-    overflow-y: scroll ;
+.photo1, .photo2, .photo3, .photo4, .photo5, .photo6, .photo7, .photo8, .photo9, .photo10, .photo11, .photo12 {
+    width: 30%;
+}
+
+.photo1, .photo7 {
+    transform: rotate(-10deg);
+    margin-bottom: -100px;
+}
+
+.photo2 {
+    margin-bottom: -75px;
+}
+
+.photo3, .photo9 {
+    transform: rotate(10deg);
+    margin-bottom: -100px;
+}
+
+.photo4 {
+    transform: rotate(5deg);
+    margin-top: -100px
+}
+
+.photo5 {
+    margin-top: -75px;
+}
+
+.photo6 {
+    transform: rotate(-10deg);
+    margin-top: -50px;
 }
 
 @media (max-width: 768px) {
@@ -353,6 +395,26 @@ h1{
 #edit-job .form-control{
     width: 50%;
     margin: auto;
+}
+
+.admin-photos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin-bottom: 20vh;
+    margin: auto;
+}
+
+.admin-photos-row {
+    width: 100%;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-photo-div {
+    width: 10vw;
 }
 
 /* --------------------------INSTAGRAM----------------------------- */
