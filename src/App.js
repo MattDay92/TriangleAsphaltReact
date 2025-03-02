@@ -5,8 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './view/Home';
 import Admin from './view/Admin';
 
-function App({storage}) {
-  const [info, setInfo] = useState([])
+function App({ storage }) {
+  const [info, setInfo] = useState(null)
 
   const getInfo = () => {
     const db = getDatabase()
@@ -15,14 +15,15 @@ function App({storage}) {
     onValue(jobInfo, (snapshot) => {
       const data = snapshot.val()
 
-      console.log(data)
-      let jobData = []
-      Object.entries(data).forEach(([key, value]) => {
-        jobData.push([key, value])
-      });
-      
-      if (jobData) {
-        setInfo(jobData)
+      if (data) {
+        let jobData = []
+        Object.entries(data).forEach(([key, value]) => {
+          jobData.push([key, value])
+        });
+
+        if (jobData) {
+          setInfo(jobData)
+        }
       }
     })
   }

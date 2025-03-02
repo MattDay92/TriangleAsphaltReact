@@ -2,7 +2,6 @@ html, body, *{
     margin: 0;
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
-    overflow-x: hidden;
 }
 
 body{
@@ -29,16 +28,19 @@ a:hover {
     z-index: -10;
     opacity: 0.6;
     transition: opacity 0.1s ease-in-out; /* Smooth opacity change */
-
 }
 
 h1{
     font-size: 4.5vw;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1024px) {
     h1 {
-        font-size: 10vw;
+        font-size: 8vw;
+    }
+
+    #background-img {
+        object-position: 60% center;
     }
 }
 
@@ -62,7 +64,6 @@ h1{
 #BackToTopBTN, #LinkedInBTN{
     position: fixed;
     z-index: 100;
-    padding: 15px;
     font-weight: 700;
     border-radius: 10%;
     opacity: 1;
@@ -74,6 +75,17 @@ h1{
     bottom: 5%;
     background: black;
     color: white;
+    padding: 15px;
+}
+
+#BackToTopBTN{
+    opacity: 0;
+    transition: 0.5s;
+    margin-top: 5px;
+}
+
+#BackToTopBTN.show{
+    opacity: 1;
 }
 
 @media (max-width: 425px) {
@@ -87,6 +99,7 @@ h1{
 }
 
 #LinkedInBTN{
+    display: flex;
     left: 5%;
     bottom: 5%;
     font-size: xxx-large;
@@ -100,8 +113,6 @@ h1{
 
 
 /* --------------------------NAVBAR-------------------------- */
-
-
 
 #nav{
     /* font-family: 'Rock Salt', cursive; */
@@ -134,7 +145,7 @@ h1{
 #logo{
     display: flex;
     justify-content: center;
-    height: 10vh;
+    height: 8vh;
     transition: 0.5s;
 }
 
@@ -150,6 +161,12 @@ h1{
 }
 
 @media (max-width: 425px) {
+    #nav {
+        height: 8vh;
+    }
+}
+
+@media (max-width: 1024px) {
     .nav-info {
         display: none;
     }
@@ -182,19 +199,16 @@ h1{
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .bannerIMG {
-        width: 80vw;
-        left: 10vw;
-        right: 10vw;
+        width: 70vw;
+        left: 15vw;
+        right: 15vw;
     }
 }
 
 
 /* ----------------------------ABOUT------------------------------- */
-
-
-
 
 #about{
     min-height: 100vh;
@@ -222,37 +236,102 @@ h1{
 
 .photo1, .photo2, .photo3, .photo4, .photo5, .photo6, .photo7, .photo8, .photo9, .photo10, .photo11, .photo12 {
     width: 30%;
+    aspect-ratio: 10/8;
+    object-fit: cover;
 }
 
 .photo1, .photo7 {
     transform: rotate(-10deg);
-    margin-bottom: -100px;
+    margin-bottom: -10%;
 }
 
-.photo2 {
-    margin-bottom: -75px;
+.photo2, .photo8 {
+    margin-bottom: -10%;
 }
 
 .photo3, .photo9 {
     transform: rotate(10deg);
-    margin-bottom: -100px;
+    margin-bottom: -10%;
 }
 
-.photo4 {
+.photo4, .photo10 {
     transform: rotate(5deg);
-    margin-top: -100px
+    margin-top: -10%
 }
 
-.photo5 {
-    margin-top: -75px;
+.photo5, .photo11 {
+    margin-top: -10%;
 }
 
-.photo6 {
+.photo6, .photo12 {
     transform: rotate(-10deg);
-    margin-top: -50px;
+    margin-top: -10%;
 }
 
-@media (max-width: 768px) {
+.about-IMG.mobile {
+    display: none;
+}
+
+@media (max-width: 425px) {
+    #about {
+        width: 80vw !important;
+    }
+
+    .about-IMG.mobile{
+        display: flex;
+    }
+
+    .about-IMG.desktop {
+        display: none;
+    }
+
+    .about-IMG {
+        margin-top: -10vh;
+        margin-bottom: -5vh;
+    }
+
+    .photo2, .photo4, .photo6, .photo8, .photo10, .photo12 {
+        display: none;
+    }
+
+    .photo1, .photo3, .photo5, .photo7, .photo9, .photo11 {
+        width: 49%;
+    }
+
+    .photo5 {
+        z-index: 10;
+    }
+
+    .photo1, .photo7 {
+        transform: rotate(-10deg);
+        margin-bottom: -150px;
+    }
+    
+    .photo2, .photo8 {
+        margin-bottom: -105px;
+    }
+    
+    .photo3, .photo9 {
+        transform: rotate(10deg);
+        margin-bottom: -150px;
+    }
+    
+    .photo4, .photo10 {
+        transform: rotate(5deg);
+        margin-top: -150px
+    }
+    
+    .photo5, .photo11 {
+        margin-top: -105px;
+    }
+    
+    .photo6, .photo12 {
+        transform: rotate(-10deg);
+        margin-top: -100px;
+    }
+}
+
+@media (max-width: 1024px) {
     #about {
         flex-direction: column;
         justify-content: center;
@@ -263,67 +342,6 @@ h1{
     }
 
     .about-info {
-        width: 80vw;
-    }
-}
-
-
-
-/* ---------------------------S&J------------------------------- */
-
-
-
-
-#SJ{
-    height: 100vh;
-    width: 80vw;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.SJ-info{
-    width: 40vw;
-    text-align: center;
-}
-
-.SJ-IMG{
-    width: 40vw;
-}
-
-@media (max-width: 768px) {
-    #SJ {
-        flex-direction: column-reverse;
-        justify-content: center;
-    }
-
-    .SJ-IMG {
-        width: 80vw;
-    }
-
-    .SJ-info {
-        width: 80vw;
-    }
-}
-
-/* ---------------------------Work Photos------------------------ */
-.photo-gallery{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.work-photos-grid{
-    height: 60vh;
-    width: 60vw;
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .work-photos-grid {
         width: 80vw;
     }
 }
@@ -346,9 +364,12 @@ h1{
     height: fit-content;
     min-height: 30vh;
     background: white;
+    padding-left: 20px;
+    padding-right: 20px;
     color: black;
     text-align: center;
     border-radius: 10%;
+    border: 5px solid rgb(214, 191, 86);
     margin: 2vw;
 }
 
@@ -369,8 +390,20 @@ h1{
 }
 
 @media (max-width: 425px) {
+    .job-postings {
+        padding-top: 10vh;
+        margin: auto;
+        width: 80vw;
+    }
+
     .job-card {
-        width: 80%;
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .job-card {
+        width: 40%;
     }
 }
 
@@ -431,7 +464,6 @@ h1{
 
 @media (max-width: 425px) {
     .instagram-div {
-        min-height: 100vh;
         align-items: center;
     }
 }
@@ -447,9 +479,10 @@ h1{
     align-items: center;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 1024px) {
     #contact {
         flex-direction: column;
+        margin-bottom: 10vh;
     }
 
     .form-control {
@@ -457,7 +490,7 @@ h1{
     }
 
     .contact-form-div {
-        min-height: 100vh;
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -483,4 +516,19 @@ h1{
 
 .form-control{
     width: 30vw;
+}
+
+form .form-control, form div {
+    margin-bottom: 5px;
+}
+
+/* ------------------------FOOTER------------------------- */
+
+footer {
+    min-height: 20vh;
+    background: black;
+}
+
+footer p {
+    margin: 0;
 }

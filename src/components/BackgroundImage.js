@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Background from '../components/images/TriangleOffice.png'
+import Background from '../components/images/TriangleOffice.webp'
 
 export default function BackgroundImage() {
   useEffect(() => {
@@ -7,7 +7,7 @@ export default function BackgroundImage() {
       const scrollTop = window.scrollY; // How much the user has scrolled
       const windowHeight = window.innerHeight; // Height of the viewport
       const maxOpacity = 0.6; // Opacity at the top
-      const minOpacity = 0.3; // Opacity when scrolled beyond window height
+      const minOpacity = 0.2; // Opacity when scrolled beyond window height
       
       // Calculate new opacity based on scroll position
       let newOpacity = maxOpacity - (scrollTop / windowHeight) * (maxOpacity - minOpacity);
@@ -22,5 +22,5 @@ export default function BackgroundImage() {
     return () => window.removeEventListener("scroll", handleScroll); // Cleanup
   }, []);
 
-  return <img id="background-img" src={Background} alt="Background" />;
+  return <img id="background-img" src={Background} alt="Triangle Asphalt Office" />;
 }

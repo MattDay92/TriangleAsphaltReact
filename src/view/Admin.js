@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getDatabase, push, ref as refDB, set, remove, get } from 'firebase/database'
 import { getStorage, ref, uploadBytes, uploadBytesResumable, uploadString, getDownloadURL } from 'firebase/storage'
-import EditJob from '../components/EditJob'
 
 export default function Admin({ info, storage }) {
     const [editKey, setEditKey] = useState('')
@@ -35,12 +34,6 @@ export default function Admin({ info, storage }) {
         const removeRef = refDB(db, `/job/${key}`)
 
         remove(removeRef)
-    }
-
-    const showEditJob = (key) => {
-        setEditKey(key)
-
-        document.getElementById('edit-job').style.display = 'block'
     }
 
     const handleFileChange = (event) => {
@@ -103,9 +96,6 @@ export default function Admin({ info, storage }) {
 
     return (
         <div id='fullpage'>
-
-            <EditJob info={info} editKey={editKey} />
-
             <h1 className='my-5 text-center'>Admin Page</h1>
 
             <div className='admin-photos'>
@@ -118,6 +108,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo2' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto2?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo2' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo3' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto3?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
@@ -126,6 +117,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo4' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto4?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo4' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo5' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto5?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
@@ -134,6 +126,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo6' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto6?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo6' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                 </div>
                 <h3>Our Story 2</h3>
@@ -145,6 +138,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo8' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo8' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo9' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto9?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
@@ -153,6 +147,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo10' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto10?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo10' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo11' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
@@ -161,6 +156,7 @@ export default function Admin({ info, storage }) {
                     <form >
                         <div className='admin-photo-div'><img className='w-100' id='photo12' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=9eab9ff9-bc70-4796-afcd-07c6b7c3c4ea' /></div>
                         <input type='file' name='photo12' onChange={handleFileChange} />
+                        <p>***Not on Mobile***</p>
                     </form>
                 </div>
 
@@ -174,22 +170,24 @@ export default function Admin({ info, storage }) {
                 <button className='btn btn-primary my-2' type='submit'>Submit Job</button>
             </form>
 
-            {info ? <div className='job-postings-div'>
-                {info.map((job) => (
-                    <div className='job-card'>
-                        <h2>{job[1].title}</h2>
-                        <p>{job[1].description}</p>
-                        <p>Job Posted on {job[1].date}</p>
-                        <a className='btn btn-danger' onClick={() => { removeJob(job[0]) }}>Remove Job</a>
-                        {/* <a className='btn btn-primary' onClick={() => { showEditJob(job[0]) }}>Remove Job</a> */}
-                    </div>
-                )
-                )}
-            </div>
-                :
-                <></>}
-
-
+                {info ? <div className='job-postings-div'>
+                    {info.map((job) => (
+                        <div className='job-card'>
+                            <h2>{job[1].title}</h2>
+                            <p>{job[1].description}</p>
+                            <p>Job Posted on {job[1].date}</p>
+                            <a className='btn btn-danger' onClick={() => { removeJob(job[0]) }}>Remove Job</a>
+                            </div>
+                    )
+                    )}
+                </div>
+                    :
+                    <div className='job-card m-auto mt-5'>
+                        <h2>General Application</h2>
+                        <p>Submit an application for employment at a future time.  No openings are currently available.</p>
+                        <a className='btn btn-primary' href="www.indeed.com" target='_blank'>Apply</a>
+                    </div>}
+            
         </div>
     )
 }

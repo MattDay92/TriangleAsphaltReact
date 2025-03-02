@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Background from '../components/images/TriangleOffice.png'
-import Collage1 from '../components/images/Collage1.svg'
-import Collage2 from '../components/images/Collage2.svg'
-import TriangleBanner from '../components/images/TriangleLogo.png'
-import TitlebarImageList from '../components/Photos.js'
-import WorkPhotos from '../components/Photos.js'
+import Background from '../components/images/TriangleOffice.webp'
+import TriangleBanner from '../components/images/TriangleLogo.webp'
 import JobPostings from '../components/JobPostings.js'
 import InstagramEmbed from '../components/Instagram.js'
 import ContactForm from '../components/ContactForm.js'
+import Footer from '../components/Footer.js'
 import BackgroundImage from '../components/BackgroundImage.js'
 
 
-export default function Home({ info }) {
+export default function Home({ info, nojob }) {
     const [zoom, setZoom] = useState(1)
 
     const scrollToTop = () => {
@@ -26,24 +23,27 @@ export default function Home({ info }) {
 
     const showNavLogo = () => {
         const navLogo = document.getElementById("nav-logo")
+        const backToTopBTN = document.getElementById("BackToTopBTN")
         const logoSection = document.getElementById("bannerIMG").offsetTop
         let position = window.scrollY
 
         if (position > logoSection) {
             navLogo.classList.add("show")
+            backToTopBTN.classList.add("show")
         } else {
             navLogo.classList.remove("show")
+            backToTopBTN.classList.remove("show")
         }
     }
 
     useEffect(() => {
         window.addEventListener("scroll", showNavLogo);
-        
+
         // Cleanup function to remove event listener
         return () => {
-          window.removeEventListener("scroll", showNavLogo);
+            window.removeEventListener("scroll", showNavLogo);
         };
-      }, []);
+    }, []);
 
     // const fullHeight = () => {
     //     let pageHeight = document.getElementById("fullpage").offsetHeight
@@ -90,21 +90,21 @@ export default function Home({ info }) {
 
             <button onClick={scrollToTop} id="BackToTopBTN">Back to Top</button>
 
-            <a href="https://www.linkedin.com/company/triangle-asphalt-paving-corp/" target="_blank" id="LinkedInBTN"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/company/triangle-asphalt-paving-corp/" aria-label="Visit our LinkedIn Page" target="_blank" id="LinkedInBTN" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
 
             <div id="banner">
-                <img class="bannerIMG" id='bannerIMG' src={TriangleBanner} />
+                <img class="bannerIMG" id='bannerIMG' src={TriangleBanner} alt='Triangle Asphalt' />
             </div>
 
             <h1 className='text-center'>Our Story</h1>
             <div id="about">
                 <div className='about-IMG'>
-                    <img className='photo1' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto1?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo2' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto2?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo3' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto3?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo4' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto4?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo5' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto5?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo6' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto6?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo1' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto1?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo2' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto2?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo3' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto3?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo4' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto4?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo5' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto5?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo6' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto6?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                 </div>
                 <div class="about-info">
                     <article className='about-paragraph-1'>
@@ -119,8 +119,16 @@ export default function Home({ info }) {
                             city work and lower-volume roads around the Boone County area.  In the early 2000s, as warehouses
                             grew out of the cornfields, Triangle was right there as one of the leaders in laying large
                             area parking lots.  </p>
-                        
+
                     </article>
+                </div>
+                <div className='about-IMG mobile'>
+                    <img className='photo7' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto7?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo8' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo9' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto9?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo10' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto10?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo11' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo12' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                 </div>
                 <div class="about-info">
                     <article className='about-paragraph-2'>
@@ -134,45 +142,27 @@ export default function Home({ info }) {
                             a pillar of the community.  With an unmatched commitment to excellence, Triangle is the best in the
                             asphalt business. </p>
                     </article>
-
-                </div>
-                <div className='about-IMG'>
-                    <img className='photo7' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto7?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo8' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo9' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto9?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo10' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto10?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo11' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
-                    <img className='photo12' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                </div> 
+                <div className='about-IMG desktop'>
+                    <img className='photo7' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto7?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo8' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo9' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto9?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo10' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto10?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo11' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
+                    <img className='photo12' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                 </div>
             </div>
-
-            {/* <div id="SJ">
-                <div class="SJ-info">
-                    <h1>Daytime Trucking</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolore
-                        libero sapiente rerum similique soluta odit vitae natus amet ipsa velit
-                        cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolore
-                        libero sapiente rerum similique soluta odit vitae natus amet ipsa velit
-                        cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, dolore
-                        libero sapiente rerum similique soluta odit vitae natus amet ipsa velit
-                        cupiditate sunt nulla sint ex in? Est, et temporibus.</p>
-                </div>
-                <img class="SJ-IMG" src={Collage1} />
-            </div> */}
 
             <div id='careers'>
-                <JobPostings info={info} />
+                <JobPostings info={info} nojob={nojob} />
             </div>
-
 
             <div id="contact">
                 <ContactForm />
                 <InstagramEmbed />
             </div>
 
-
+            <Footer />
         </div>
     )
 }
