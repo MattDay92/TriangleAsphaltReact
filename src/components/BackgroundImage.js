@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Background from '../components/images/TriangleOffice.webp'
 
 export default function BackgroundImage() {
   useEffect(() => {
@@ -22,5 +21,5 @@ export default function BackgroundImage() {
     return () => window.removeEventListener("scroll", handleScroll); // Cleanup
   }, []);
 
-  return <img id="background-img" src={Background} alt="Triangle Asphalt Office" />;
+  return <img id="background-img" src='/TriangleOffice.webp' alt="Triangle Asphalt Office" />;
 }

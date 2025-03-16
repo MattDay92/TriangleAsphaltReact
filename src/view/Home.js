@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Background from '../components/images/TriangleOffice.webp'
-import TriangleBanner from '../components/images/TriangleLogo.webp'
 import JobPostings from '../components/JobPostings.js'
 import InstagramEmbed from '../components/Instagram.js'
 import ContactForm from '../components/ContactForm.js'
@@ -78,22 +76,24 @@ export default function Home({ info, nojob }) {
             <BackgroundImage />
             <nav id="nav">
                 <div className='nav-info nav-info-1'>
-                    <a onClick={() => { scrollToSection("careers") }} className='py-0 my-0'>Career Opportunities</a>
+                    <button onClick={() => { scrollToSection("careers") }} className='py-0 my-0'>Career Opportunities</button>
                 </div>
                 <div id="logo">
-                    <img id="nav-logo" className='nav-logo' src={TriangleBanner} />
+                    <img id="nav-logo" className='nav-logo' src='/TriangleLogo.webp' alt='Triangle Asphalt' />
                 </div>
                 <div className="nav-info nav-info-2">
-                    <a onClick={() => { scrollToSection("contact") }} className='py-0 my-0'>Contact Us</a>
+                    <button onClick={() => { scrollToSection("contact") }} className='py-0 my-0'>Contact Us</button>
                 </div>
             </nav>
 
             <button onClick={scrollToTop} id="BackToTopBTN">Back to Top</button>
 
-            <a href="https://www.linkedin.com/company/triangle-asphalt-paving-corp/" aria-label="Visit our LinkedIn Page" target="_blank" id="LinkedInBTN" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
-
+            <div id='socialdiv'>
+                <a href="https://www.instagram.com/triangleasphalt/" aria-label="Visit our Instagram Page" target="_blank" id="InstagramBTN" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href='https://www.facebook.com/profile.php?id=61573295436266' aria-label='Visit our Facebook Page' target='_blank' id='FacebookBTN' rel="noopener noreferrer"><i class="fa-brands fa-square-facebook"></i></a>
+            </div>
             <div id="banner">
-                <img class="bannerIMG" id='bannerIMG' src={TriangleBanner} alt='Triangle Asphalt' />
+                <img class="bannerIMG" id='bannerIMG' src='TriangleLogo.webp' alt='Triangle Asphalt' />
             </div>
 
             <h1 className='text-center'>Our Story</h1>
@@ -142,7 +142,7 @@ export default function Home({ info, nojob }) {
                             a pillar of the community.  With an unmatched commitment to excellence, Triangle is the best in the
                             asphalt business. </p>
                     </article>
-                </div> 
+                </div>
                 <div className='about-IMG desktop'>
                     <img className='photo7' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto7?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                     <img className='photo8' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto8?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />

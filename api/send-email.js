@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 export default async function handler(req, res) {
-    res.setHeader('Access-Control-Allow-Origin', 'https://triangleasphalt-4b0f2.web.app');
+    res.setHeader('Access-Control-Allow-Origin', 'https://triangleasphalt.com');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
@@ -22,27 +22,30 @@ export default async function handler(req, res) {
         }
 
         const transporter = nodemailer.createTransport({
-            service: 'gmail',
+            host: 'secure.emailsrvr.com',
+            port: 465, // Use 587 if not using SSL
+            secure: true, // Set to false if using port 587 (TLS)
             auth: {
-                user: 'mattdaymusic10@gmail.com',
-                pass: process.env.EMAIL_PASSWORD,
+                user: process.env.EMAIL_USER, // Your Rackspace email
+                pass: process.env.EMAIL_PASSWORD, // Your Rackspace email password
             },
         });
 
         // First email: Notification to the admin
         const adminMailOptions = {
-            from: email, // From the sender's email
-            to: 'mattdaymusic10@gmail.com', // Your email address
+            from: process.env.EMAIL_USER, // ✅ Use your Rackspace email here
+            replyTo: email, // Allows replies to go to the sender
+            to: process.env.EMAIL_USER, // Your email address
             subject: 'New Contact Form Submission',
-            text: `You have a new message from ${name} (${email}):\n\n ${inquiryType}\n\n${message}`,
+            text: `You have a new message from ${name} (${email}):\n\nInquiry Type: ${inquiryType}\n\n${message}`,
         };
 
         // Second email: Confirmation to the user
         const userMailOptions = {
-            from: 'mattdaymusic10@gmail.com', // Your email address
+            from: process.env.EMAIL_USER, // Your email address
             to: email, // To the user who submitted the form
             subject: 'Confirmation of Your Message',
-            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\n${inquiryType}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
+            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\nInquiry Type:  ${inquiryType}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
         };
 
         // Send the email to the admin

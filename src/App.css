@@ -10,12 +10,14 @@ body{
     background: black;
 }
 
-a {
+a, button {
     text-decoration: none;
     color: white;
+    background: black;
+    border: 0px solid black;
 }
 
-a:hover {
+a:hover, button:hover {
     color: rgb(214, 191, 86);
     cursor: pointer;
 }
@@ -57,11 +59,11 @@ h1{
     background-color: black !important;
 }
 
-.fa-linkedin {
+.fa-linkedin, .fa-square-facebook, .fa-instagram {
     overflow: hidden;
 }
 
-#BackToTopBTN, #LinkedInBTN{
+#BackToTopBTN, #socialdiv{
     position: fixed;
     z-index: 100;
     font-weight: 700;
@@ -93,20 +95,34 @@ h1{
         display: none;
     }
 
-    #LinkedInBTN{
+    #LinkedInBTN, #FacebookBTN, #InstagramBTN{
         font-size: 2rem !important;
+    }
+
+    #socialdiv {
+        width: 45px;
+        flex-wrap: wrap;
     }
 }
 
-#LinkedInBTN{
+#socialdiv {
     display: flex;
+    justify-content: space-between;
     left: 5%;
     bottom: 5%;
-    font-size: xxx-large;
-    color: white;
+    background: rgba(255, 255, 255, 0);
 }
 
-#LinkedInBTN:hover, #BackToTopBTN:hover{
+#LinkedInBTN, #FacebookBTN, #InstagramBTN{
+    font-size: xxx-large;
+    color: white;
+    background: rgba(255, 255, 255, 0);
+    margin: 5px;
+    padding: 0 !important;
+    height: 40px;
+}
+
+#LinkedInBTN:hover, #BackToTopBTN:hover, #FacebookBTN:hover, #InstagramBTN:hover{
     color: rgb(214, 191, 86);
 }
 
@@ -352,7 +368,6 @@ h1{
     min-height: 100vh;
     margin-top: 10vh;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -371,6 +386,11 @@ h1{
     border-radius: 10%;
     border: 5px solid rgb(214, 191, 86);
     margin: 2vw;
+    padding: 20px;
+}
+
+.job-card.nojob {
+    width: 60%
 }
 
 .job-postings-div{
@@ -404,6 +424,12 @@ h1{
 @media (max-width: 768px) {
     .job-card {
         width: 40%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .job-card h2 {
+        font-size: x-large;   
     }
 }
 
@@ -444,6 +470,7 @@ h1{
     margin-bottom: 5vh;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .admin-photo-div {
@@ -529,6 +556,6 @@ footer {
     background: black;
 }
 
-footer p {
+footer div{
     margin: 0;
 }
