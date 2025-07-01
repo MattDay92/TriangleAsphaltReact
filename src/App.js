@@ -37,7 +37,7 @@ function App({ storage }) {
       <BrowserRouter>
         <Routes>
           <Route exact path={'/'} element={<Home info={info} />} />
-          <Route exact path={'/admin'} element={<Admin info={info} storage={storage} />} />
+          <Route exact path={'/admin0954'} element={<Admin info={info} storage={storage} />} />
         </Routes>
       </BrowserRouter>
     </div>

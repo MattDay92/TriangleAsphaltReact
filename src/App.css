@@ -90,7 +90,7 @@ h1{
     opacity: 1;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     #BackToTopBTN{
         display: none;
     }
@@ -102,6 +102,7 @@ h1{
     #socialdiv {
         width: 45px;
         flex-wrap: wrap;
+        bottom: 3% !important;
     }
 }
 
@@ -176,7 +177,7 @@ h1{
     opacity: 1;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     #nav {
         height: 8vh;
     }
@@ -207,7 +208,7 @@ h1{
     left: 10vw;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     .bannerIMG {
         width: 100vw;
         left: 0;
@@ -288,7 +289,7 @@ h1{
     display: none;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     #about {
         width: 80vw !important;
     }
@@ -409,7 +410,7 @@ h1{
     margin-right: auto;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     .job-postings {
         padding-top: 10vh;
         margin: auto;
@@ -489,7 +490,7 @@ h1{
     width: 30vw;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 500px) {
     .instagram-div {
         align-items: center;
     }

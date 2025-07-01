@@ -8,7 +8,9 @@ export default function Footer() {
             <div className='m-auto'>
                 © {new Date().getFullYear()}
                 <br />
-                Triangle Asphalt Paving Corp.
+                <p className='mb-0 pb-0'>Triangle Asphalt Paving Corp.</p>
+                <p className='mb-0 pb-0'>501 Sam Ralston Rd.</p>
+                <p className='mb-0 pb-0'>Lebanon, IN 46052</p>
             </div>
         </footer>
     )
