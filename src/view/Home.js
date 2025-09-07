@@ -4,9 +4,9 @@ import InstagramEmbed from '../components/Instagram.js'
 import ContactForm from '../components/ContactForm.js'
 import Footer from '../components/Footer.js'
 import BackgroundImage from '../components/BackgroundImage.js'
+import HomeCarousel from '../components/HomeCarousel.js'
 
-
-export default function Home({ info, nojob }) {
+export default function Home({ info, nojob, featuredInfo, storage }) {
     const [zoom, setZoom] = useState(1)
 
     const scrollToTop = () => {
@@ -151,6 +151,31 @@ export default function Home({ info, nojob }) {
                     <img className='photo11' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto11?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                     <img className='photo12' alt='Triangle Asphalt Photo' src='https://firebasestorage.googleapis.com/v0/b/triangleasphalt-4b0f2.firebasestorage.app/o/files%2Fphoto12?alt=media&token=cc746590-0cbb-46fe-9e50-696f25d16016' />
                 </div>
+            </div>
+
+            {/* <h2>{featuredInfo.linkURL}</h2>
+            <div className='home-featured-IMG-div'>
+                <div>
+                    <div className='featured-IMG-1'>
+                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured1?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
+                        <p>{featuredInfo.caption}</p>
+                    </div>
+                    <div className='featured-IMG-2'>
+                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured2?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
+                        <p>{featuredInfo.caption}</p>
+                    </div>
+                    <div className='featured-IMG-3'>
+                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured3?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
+                        <p>{featuredInfo.caption}</p>
+                    </div>
+                </div>
+            </div> */}
+
+            <div id='carousel'>
+                <div>
+                    <h1 className='text-center'>Job Photos</h1>
+                </div>
+                <HomeCarousel />
             </div>
 
             <div id='careers'>

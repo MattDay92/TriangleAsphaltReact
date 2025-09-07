@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import FirebaseCarousel from '../components/AdminCarousel'
 import { getDatabase, push, ref as refDB, set, remove, get } from 'firebase/database'
 import { getStorage, ref, uploadBytes, uploadBytesResumable, uploadString, getDownloadURL } from 'firebase/storage'
 
@@ -7,6 +8,7 @@ export default function Admin({ info, storage }) {
     const [fileUpload, setFileUpload] = useState('')
     const [fileUploadName, setFileUploadName] = useState('')
     const [fileDownload, setFileDownload] = useState('')
+    const [featuredInfo, setFeaturedInfo] = useState('')
 
     const updateInfo = (event) => {
         event.preventDefault()
@@ -46,7 +48,6 @@ export default function Admin({ info, storage }) {
         reader.readAsDataURL(selectedFile)
 
         reader.onload = () => {
-            console.log(reader.result);
             setFileUpload(reader.result)
             setFileUploadName(event.target.name)
         }
@@ -85,6 +86,7 @@ export default function Admin({ info, storage }) {
                     const link = xhr.responseURL
                     setFileDownload(link)
                     console.log('Ran Download')
+                    console.log(link)
                 };
                 xhr.open('GET', url);
                 xhr.send()
@@ -93,6 +95,26 @@ export default function Admin({ info, storage }) {
                 console.log('ERROR Downloading File')
             })
     }
+
+    const updateFeaturedInfo = (event) => {
+        event.preventDefault()
+        const db = getDatabase();
+
+        const caption = event.target.featuredCaption.value
+        const thisFileDownload = fileDownload
+
+
+        set(refDB(db, 'featuredTitle'), {
+            caption: caption,
+            thisFileDownload: thisFileDownload
+        }).then(() => {
+            alert('Featured Title updated successfully!');
+        }).catch((error) => {
+            console.error('Error saving data:', error);
+            alert('An error occurred while updating the featured title. Please try again.');
+        });
+    }
+
 
     return (
         <div id='fullpage'>
@@ -162,7 +184,9 @@ export default function Admin({ info, storage }) {
 
             </div>
 
-            <h2 className='text-center '>Insert New Job</h2>
+            
+
+            <h2 className='text-center mt-5'>Insert New Job</h2>
             <form className='mb-5 w-75 m-auto text-center' onSubmit={updateInfo}>
                 <input className='form-control' name='jobTitle' placeholder='Insert Job Title' />
                 <input className='form-control' name='jobDescription' placeholder='Insert Job Description' />
@@ -170,24 +194,27 @@ export default function Admin({ info, storage }) {
                 <button className='btn btn-primary my-2' type='submit'>Submit Job</button>
             </form>
 
-                {info ? <div className='job-postings-div'>
-                    {info.map((job) => (
-                        <div className='job-card'>
-                            <h2>{job[1].title}</h2>
-                            <p>{job[1].description}</p>
-                            <p>Job Posted on {job[1].date}</p>
-                            <a className='btn btn-danger' onClick={() => { removeJob(job[0]) }}>Remove Job</a>
-                            </div>
-                    )
-                    )}
-                </div>
-                    :
-                    <div className='job-card m-auto mt-5'>
-                        <h2>General Application</h2>
-                        <p>Submit an application for employment at a future time.  No openings are currently available.</p>
-                        <a className='btn btn-primary' href="www.indeed.com" target='_blank'>Apply</a>
-                    </div>}
-            
+            {info ? <div className='job-postings-div'>
+                {info.map((job) => (
+                    <div className='job-card'>
+                        <h2>{job[1].title}</h2>
+                        <p>{job[1].description}</p>
+                        <p>Job Posted on {job[1].date}</p>
+                        <a className='btn btn-danger' onClick={() => { removeJob(job[0]) }}>Remove Job</a>
+                    </div>
+                )
+                )}
+            </div>
+                :
+                <div className='job-card m-auto mt-5'>
+                    <h2>General Application</h2>
+                    <p>Submit an application for employment at a future time.  No openings are currently available.</p>
+                    <a className='btn btn-primary' href="www.indeed.com" target='_blank'>Apply</a>
+                </div>}
+
+            <FirebaseCarousel storage={storage} />
+
+
         </div>
     )
 }

@@ -363,6 +363,22 @@ h1{
     }
 }
 
+/* --------------------------Job Photos-------------------------- */
+
+#carousel {
+    min-height: 100vh;
+    padding-top: 10vh;
+}
+
+.slide {
+    width: 25vw;
+    margin: auto;
+}
+
+.caption {
+    font-size: x-large;
+}
+
 /* --------------------------Job Postings------------------------ */
 
 .job-postings{
