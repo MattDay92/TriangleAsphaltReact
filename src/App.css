@@ -1,38 +1,43 @@
-html, body, *{
+html,
+body,
+* {
     margin: 0;
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
 }
 
-body{
+body {
     /* background: linear-gradient(130deg, rgb(183, 183, 183), rgb(40, 40, 40) 100%);; */
     color: white;
     background: black;
 }
 
-a, button {
+a,
+button {
     text-decoration: none;
     color: white;
     background: black;
     border: 0px solid black;
 }
 
-a:hover, button:hover {
+a:hover,
+button:hover {
     color: rgb(214, 191, 86);
     cursor: pointer;
 }
 
-#background-img{
+#background-img {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
     position: fixed;
     z-index: -10;
     opacity: 0.6;
-    transition: opacity 0.1s ease-in-out; /* Smooth opacity change */
+    transition: opacity 0.1s ease-in-out;
+    /* Smooth opacity change */
 }
 
-h1{
+h1 {
     font-size: 4.5vw;
 }
 
@@ -46,9 +51,17 @@ h1{
     }
 }
 
-.btn{
+.btn {
     background: rgb(214, 191, 86);
     border: 0;
+}
+
+.btn-danger {
+    background: red !important;
+}
+
+.btn-danger:hover {
+    background: rgb(180, 0, 0) !important;
 }
 
 .btn:hover {
@@ -59,11 +72,14 @@ h1{
     background-color: black !important;
 }
 
-.fa-linkedin, .fa-square-facebook, .fa-instagram {
+.fa-linkedin,
+.fa-square-facebook,
+.fa-instagram {
     overflow: hidden;
 }
 
-#BackToTopBTN, #socialdiv{
+#BackToTopBTN,
+#socialdiv {
     position: fixed;
     z-index: 100;
     font-weight: 700;
@@ -72,7 +88,7 @@ h1{
     transition: 0.5s
 }
 
-#BackToTopBTN{
+#BackToTopBTN {
     right: 5%;
     bottom: 5%;
     background: black;
@@ -80,22 +96,24 @@ h1{
     padding: 15px;
 }
 
-#BackToTopBTN{
+#BackToTopBTN {
     opacity: 0;
     transition: 0.5s;
     margin-top: 5px;
 }
 
-#BackToTopBTN.show{
+#BackToTopBTN.show {
     opacity: 1;
 }
 
 @media (max-width: 500px) {
-    #BackToTopBTN{
+    #BackToTopBTN {
         display: none;
     }
 
-    #LinkedInBTN, #FacebookBTN, #InstagramBTN{
+    #LinkedInBTN,
+    #FacebookBTN,
+    #InstagramBTN {
         font-size: 2rem !important;
     }
 
@@ -114,7 +132,9 @@ h1{
     background: rgba(255, 255, 255, 0);
 }
 
-#LinkedInBTN, #FacebookBTN, #InstagramBTN{
+#LinkedInBTN,
+#FacebookBTN,
+#InstagramBTN {
     font-size: xxx-large;
     color: white;
     background: rgba(255, 255, 255, 0);
@@ -123,7 +143,10 @@ h1{
     height: 40px;
 }
 
-#LinkedInBTN:hover, #BackToTopBTN:hover, #FacebookBTN:hover, #InstagramBTN:hover{
+#LinkedInBTN:hover,
+#BackToTopBTN:hover,
+#FacebookBTN:hover,
+#InstagramBTN:hover {
     color: rgb(214, 191, 86);
 }
 
@@ -131,7 +154,7 @@ h1{
 
 /* --------------------------NAVBAR-------------------------- */
 
-#nav{
+#nav {
     /* font-family: 'Rock Salt', cursive; */
     font-family: 'Josefin Sans', sans-serif;
     display: flex;
@@ -146,7 +169,7 @@ h1{
     z-index: 100;
 }
 
-.nav-info{
+.nav-info {
     width: 15vw;
     text-align: center;
 }
@@ -159,21 +182,21 @@ h1{
     margin-right: 10vw;
 }
 
-#logo{
+#logo {
     display: flex;
     justify-content: center;
     height: 8vh;
     transition: 0.5s;
 }
 
-.nav-logo{
+.nav-logo {
     height: 80%;
     opacity: 0;
     transition: 0.5s;
     margin-top: 5px;
 }
 
-.nav-logo.show{
+.nav-logo.show {
     opacity: 1;
 }
 
@@ -194,7 +217,7 @@ h1{
 
 
 
-#banner{
+#banner {
     height: 100vh;
     width: 80vw;
     margin: auto;
@@ -202,7 +225,7 @@ h1{
     align-items: center;
 }
 
-.bannerIMG{
+.bannerIMG {
     position: absolute;
     width: 35vw;
     left: 10vw;
@@ -227,7 +250,7 @@ h1{
 
 /* ----------------------------ABOUT------------------------------- */
 
-#about{
+#about {
     min-height: 100vh;
     width: 85vw;
     margin: auto;
@@ -237,7 +260,7 @@ h1{
     flex-wrap: wrap;
 }
 
-.about-IMG{
+.about-IMG {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -246,41 +269,58 @@ h1{
     height: 50vh;
 }
 
-.about-info{
+.about-info {
     width: 40vw;
     text-align: center;
 }
 
-.photo1, .photo2, .photo3, .photo4, .photo5, .photo6, .photo7, .photo8, .photo9, .photo10, .photo11, .photo12 {
+.photo1,
+.photo2,
+.photo3,
+.photo4,
+.photo5,
+.photo6,
+.photo7,
+.photo8,
+.photo9,
+.photo10,
+.photo11,
+.photo12 {
     width: 30%;
     aspect-ratio: 10/8;
     object-fit: cover;
 }
 
-.photo1, .photo7 {
+.photo1,
+.photo7 {
     transform: rotate(-10deg);
     margin-bottom: -10%;
 }
 
-.photo2, .photo8 {
+.photo2,
+.photo8 {
     margin-bottom: -10%;
 }
 
-.photo3, .photo9 {
+.photo3,
+.photo9 {
     transform: rotate(10deg);
     margin-bottom: -10%;
 }
 
-.photo4, .photo10 {
+.photo4,
+.photo10 {
     transform: rotate(5deg);
     margin-top: -10%
 }
 
-.photo5, .photo11 {
+.photo5,
+.photo11 {
     margin-top: -10%;
 }
 
-.photo6, .photo12 {
+.photo6,
+.photo12 {
     transform: rotate(-10deg);
     margin-top: -10%;
 }
@@ -294,7 +334,7 @@ h1{
         width: 80vw !important;
     }
 
-    .about-IMG.mobile{
+    .about-IMG.mobile {
         display: flex;
     }
 
@@ -307,11 +347,21 @@ h1{
         margin-bottom: -5vh;
     }
 
-    .photo2, .photo4, .photo6, .photo8, .photo10, .photo12 {
+    .photo2,
+    .photo4,
+    .photo6,
+    .photo8,
+    .photo10,
+    .photo12 {
         display: none;
     }
 
-    .photo1, .photo3, .photo5, .photo7, .photo9, .photo11 {
+    .photo1,
+    .photo3,
+    .photo5,
+    .photo7,
+    .photo9,
+    .photo11 {
         width: 49%;
     }
 
@@ -319,30 +369,36 @@ h1{
         z-index: 10;
     }
 
-    .photo1, .photo7 {
+    .photo1,
+    .photo7 {
         transform: rotate(-10deg);
         margin-bottom: -150px;
     }
-    
-    .photo2, .photo8 {
+
+    .photo2,
+    .photo8 {
         margin-bottom: -105px;
     }
-    
-    .photo3, .photo9 {
+
+    .photo3,
+    .photo9 {
         transform: rotate(10deg);
         margin-bottom: -150px;
     }
-    
-    .photo4, .photo10 {
+
+    .photo4,
+    .photo10 {
         transform: rotate(5deg);
         margin-top: -150px
     }
-    
-    .photo5, .photo11 {
+
+    .photo5,
+    .photo11 {
         margin-top: -105px;
     }
-    
-    .photo6, .photo12 {
+
+    .photo6,
+    .photo12 {
         transform: rotate(-10deg);
         margin-top: -100px;
     }
@@ -367,11 +423,25 @@ h1{
 
 #carousel {
     min-height: 100vh;
-    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel img {
+    position: relative;
+    z-index: 1;
+    max-height: 80vh;
+    /* keeps aspect ratio */
+    width: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
 
 .slide {
-    width: 25vw;
+    width: 40vw;
     margin: auto;
 }
 
@@ -379,16 +449,52 @@ h1{
     font-size: x-large;
 }
 
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.blur-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px);
+    transform: scale(1.1);
+    /* prevents sharp edges */
+    z-index: 0;
+}
+
+
+@media (max-width: 768px) {
+    .slide {
+        width: 70vw;
+    }
+
+    .caption {
+        font-size: large;
+    }
+}
+
+@media (max-width: 500px) {
+    .slide {
+        width: 65vw;
+    }
+}
+
 /* --------------------------Job Postings------------------------ */
 
-.job-postings{
+.job-postings {
     min-height: 100vh;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
 }
 
-.job-card{
+.job-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -410,7 +516,7 @@ h1{
     width: 60%
 }
 
-.job-postings-div{
+.job-postings-div {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -420,7 +526,7 @@ h1{
     text-align: center;
 }
 
-.job-card .btn{
+.job-card .btn {
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -446,13 +552,13 @@ h1{
 
 @media (max-width: 1200px) {
     .job-card h2 {
-        font-size: x-large;   
+        font-size: x-large;
     }
 }
 
 /* -------------------------ADMIN------------------------------- */
 
-#edit-job{
+#edit-job {
     display: none;
     width: 100vw;
     height: 100vh;
@@ -462,13 +568,13 @@ h1{
     text-align: center;
 }
 
-#edit-job .job-card{
+#edit-job .job-card {
     width: 100%;
     height: 100%;
     border-radius: 0;
 }
 
-#edit-job .form-control{
+#edit-job .form-control {
     width: 50%;
     margin: auto;
 }
@@ -494,14 +600,34 @@ h1{
     width: 10vw;
 }
 
+.admin-job-photos-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.admin-job-photos-cards {
+    display: flex;
+    justify-content: space-around;
+    width: 80vw;
+}
+
+.admin-job-photos-cards .form-control {
+    width: 100%;
+}
+
+.admin-job-photos-cards .card {
+    width: 15vw;
+}
+
 /* --------------------------INSTAGRAM----------------------------- */
 
-.instagram-div{
+.instagram-div {
     display: flex;
     justify-content: center;
 }
 
-.instagram-media{
+.instagram-media {
     max-width: 400px;
     width: 30vw;
 }
@@ -514,7 +640,7 @@ h1{
 
 /* ---------------------------CONTACT------------------------------ */
 
-#contact{
+#contact {
     min-height: 100vh;
     width: 100vw;
     margin: auto;
@@ -541,7 +667,7 @@ h1{
     }
 }
 
-.contact-btn{
+.contact-btn {
     z-index: 100;
     padding: 15px;
     font-weight: 700;
@@ -553,16 +679,17 @@ h1{
     border: none;
 }
 
-.contact-btn:hover{
-    color: rgb(255,229,122);
+.contact-btn:hover {
+    color: rgb(255, 229, 122);
     background: black;
 }
 
-.form-control{
+.form-control {
     width: 30vw;
 }
 
-form .form-control, form div {
+form .form-control,
+form div {
     margin-bottom: 5px;
 }
 
@@ -573,6 +700,6 @@ footer {
     background: black;
 }
 
-footer div{
+footer div {
     margin: 0;
 }

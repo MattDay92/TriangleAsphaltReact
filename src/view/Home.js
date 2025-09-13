@@ -172,9 +172,6 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
             </div> */}
 
             <div id='carousel'>
-                <div>
-                    <h1 className='text-center'>Job Photos</h1>
-                </div>
                 <HomeCarousel />
             </div>
 

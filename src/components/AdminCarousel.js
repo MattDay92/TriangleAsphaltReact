@@ -19,6 +19,8 @@ export default function AdminCarouselUpload({ storage }) {
     const [image, setImage] = useState(null);
     const [caption, setCaption] = useState("");
     const [slides, setSlides] = useState([]);
+    const [editedCaptions, setEditedCaptions] = useState({});
+
 
     const db = getDatabase();
 
@@ -71,8 +73,8 @@ export default function AdminCarouselUpload({ storage }) {
     };
 
     return (
-        <div className="container my-4">
-            <h2>Admin Carousel Manager</h2>
+        <div className="admin-job-photos-section container my-4">
+            <h2>Job Photos</h2>
 
             {/* Upload Form */}
             <div className="mb-3">
@@ -94,26 +96,36 @@ export default function AdminCarouselUpload({ storage }) {
             </div>
 
             {/* Current Slides */}
-            <div className="row">
+            <div className="admin-job-photos-cards row">
                 {slides.map((slide) => (
                     <div key={slide.id} className="col-md-4 mb-3">
                         <div className="card">
                             <img
-                                src={slide.src}
+                                src={slide.url}
                                 className="card-img-top"
                                 alt="Slide"
                             />
-                            <div className="card-body">
+                            <div className="card-body text-center">
                                 {/* Display caption */}
                                 <p className="card-text">{slide.caption}</p>
 
                                 {/* Edit caption */}
-                                <input
+                                <textarea
                                     type="text"
-                                    defaultValue={slide.caption}
+                                    rows="4"
                                     className="form-control mb-2"
-                                    onBlur={(e) => updateCaption(slide.id, e.target.value)}
+                                    value={editedCaptions[slide.id] ?? slide.caption}
+                                    onChange={(e) =>
+                                        setEditedCaptions({ ...editedCaptions, [slide.id]: e.target.value })
+                                    }
                                 />
+
+                                <button
+                                    className="btn btn-success btn-sm me-2"
+                                    onClick={() => updateCaption(slide.id, editedCaptions[slide.id] ?? slide.caption)}
+                                >
+                                    Update
+                                </button>
 
                                 <button
                                     onClick={() => deleteSlide(slide.id, slide.storagePath)}

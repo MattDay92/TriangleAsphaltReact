@@ -28,22 +28,33 @@ export default function HomeCarousel() {
   return (
     <div id="firebaseCarousel" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
+        <h1 className="text-center pb-4">Job Photos</h1>
+
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`carousel-item ${index === 0 ? "active" : ""}`}
+            className={`carousel-item ${index === 0 ? "active" : ""} position-relative`}
           >
+            {/* Blurred background */}
+            <div
+              className="blur-bg"
+              style={{ backgroundImage: `url(${slide.url})` }}
+            ></div>
+
+            {/* Main image */}
             <img
-              src={slide.src}
-              className="d-block w-100"
+              src={slide.url}
+              className="main-img d-block mx-auto"
               alt={slide.caption || `Slide ${index + 1}`}
             />
+
             {slide.caption && (
-              <div className="caption text-center mt-4">
+              <div className="caption text-center mt-4 position-relative">
                 <p className="mb-0">{slide.caption}</p>
               </div>
             )}
           </div>
+
         ))}
       </div>
 
