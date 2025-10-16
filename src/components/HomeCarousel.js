@@ -3,6 +3,7 @@ import { ref, onValue, getDatabase } from "firebase/database";
 
 export default function HomeCarousel() {
   const [slides, setSlides] = useState([]);
+  const [enlargedSlide, setEnlargedSlide] = useState(null);
 
   useEffect(() => {
     const db = getDatabase();
@@ -26,57 +27,54 @@ export default function HomeCarousel() {
   }
 
   return (
-    <div id="firebaseCarousel" className="carousel slide" data-bs-ride="carousel">
-      <div className="carousel-inner">
-        <h1 className="text-center pb-4">Job Photos</h1>
-
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`carousel-item ${index === 0 ? "active" : ""} position-relative`}
-          >
-            {/* Blurred background */}
+    <>
+      <div className="container photos-grid py-4">
+        <div className="row">
+          {slides.map((slide) => (
             <div
-              className="blur-bg"
-              style={{ backgroundImage: `url(${slide.url})` }}
-            ></div>
+              key={slide.id}
+              className="slide-card"
+              onClick={() => setEnlargedSlide(slide)}
+            >
+              <div className="image-wrapper">
+                <div
+                  className="blur-bg"
+                  style={{ backgroundImage: `url(${slide.url})` }}
+                ></div>
 
-            {/* Main image */}
-            <img
-              src={slide.url}
-              className="main-img d-block mx-auto"
-              alt={slide.caption || `Slide ${index + 1}`}
-            />
-
-            {slide.caption && (
-              <div className="caption text-center mt-4 position-relative">
-                <p className="mb-0">{slide.caption}</p>
+                <img
+                  src={slide.url}
+                  alt={slide.caption || "Slide image"}
+                  className="main-img d-block mx-auto"
+                />
               </div>
-            )}
-          </div>
 
-        ))}
+              {slide.caption && (
+                <div className="caption text-center mt-2">
+                  <p className="mb-0">{slide.caption}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Controls */}
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#firebaseCarousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#firebaseCarousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
+      {enlargedSlide && (
+        <div
+          className="lightbox-overlay"
+          onClick={() => setEnlargedSlide(null)}
+        >
+          <img
+            src={enlargedSlide.url}
+            alt={enlargedSlide.caption || "Enlarged image"}
+            className="lightbox-image"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
+          />
+          {enlargedSlide.caption && (
+            <div className="lightbox-caption">{enlargedSlide.caption}</div>
+          )}
+        </div>
+      )}
+    </>
   );
 }

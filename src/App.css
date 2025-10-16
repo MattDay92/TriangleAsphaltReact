@@ -421,37 +421,27 @@ h1 {
 
 /* --------------------------Job Photos-------------------------- */
 
-#carousel {
-    min-height: 100vh;
+.photos-grid {
+    min-height: 120vh;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
 }
 
-.carousel img {
+.slide-card {
+    width: 25vw;
+}
+
+.image-wrapper {
     position: relative;
-    z-index: 1;
-    max-height: 80vh;
-    /* keeps aspect ratio */
-    width: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: contain;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-.slide {
-    width: 40vw;
-    margin: auto;
-}
-
-.caption {
-    font-size: x-large;
-}
-
-.carousel-item {
-    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
     overflow: hidden;
+    background: black;
 }
 
 .blur-bg {
@@ -464,26 +454,83 @@ h1 {
     background-position: center;
     filter: blur(20px);
     transform: scale(1.1);
-    /* prevents sharp edges */
     z-index: 0;
 }
 
+.main-img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
-@media (max-width: 1024px) {
-    .slide {
-        width: 75vw;
+.caption {
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Overlay for enlarged image */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.lightbox-image {
+  max-width: 75vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: default;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-caption {
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 75vw;
+}
+
+/* Optional fade-in animation */
+.lightbox-overlay {
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (max-width: 800px) {
+    .photos-grid {
+        justify-content: center;
+        margin-left: 5vw;
+        margin-right: 5vw;
     }
 
-    .caption {
-        font-size: large;
+    .slide-card {
+        width: 45vw;
+        margin-top: 2vh;
     }
 }
 
-@media (max-width: 500px) {
-    .slide {
-        width: 65vw;
-    }
-}
+
 
 /* --------------------------Job Postings------------------------ */
 
@@ -604,6 +651,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    justify-content: center;
 }
 
 .admin-job-photos-cards {

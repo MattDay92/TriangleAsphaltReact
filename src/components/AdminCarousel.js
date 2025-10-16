@@ -74,7 +74,8 @@ export default function AdminCarouselUpload({ storage }) {
 
     return (
         <div className="admin-job-photos-section container my-4">
-            <h2>Job Photos</h2>
+            <h2>Job Photos Grid</h2>
+            <h4>***Crop Image to SQUARE for best results***</h4>
 
             {/* Upload Form */}
             <div className="mb-3">
@@ -112,7 +113,7 @@ export default function AdminCarouselUpload({ storage }) {
                                 {/* Edit caption */}
                                 <textarea
                                     type="text"
-                                    rows="4"
+                                    rows="2"
                                     className="form-control mb-2"
                                     value={editedCaptions[slide.id] ?? slide.caption}
                                     onChange={(e) =>

@@ -153,23 +153,7 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
                 </div>
             </div>
 
-            {/* <h2>{featuredInfo.linkURL}</h2>
-            <div className='home-featured-IMG-div'>
-                <div>
-                    <div className='featured-IMG-1'>
-                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured1?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
-                        <p>{featuredInfo.caption}</p>
-                    </div>
-                    <div className='featured-IMG-2'>
-                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured2?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
-                        <p>{featuredInfo.caption}</p>
-                    </div>
-                    <div className='featured-IMG-3'>
-                        <img className='FeaturedIMG' alt='Featured Photo' src='https://firebasestorage.googleapis.com/v0/b/fcomm-choirs.firebasestorage.app/o/files%2Ffeatured3?alt=media&token=b751f92b-36b2-480a-a703-9acff43da9b2' />
-                        <p>{featuredInfo.caption}</p>
-                    </div>
-                </div>
-            </div> */}
+            
 
             <div id='carousel'>
                 <HomeCarousel />
