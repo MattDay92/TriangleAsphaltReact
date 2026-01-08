@@ -108,8 +108,7 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
                 </div>
                 <div class="about-info">
                     <article className='about-paragraph-1'>
-                        <p>Founded in 1961, Triangle Asphalt Paving has been a mainstay of Boone County for over sixty years.
-                            With only two dump trucks and an asphalt distributor, founder Jack Day and two original partners
+                        <p>Triangle Asphalt Paving Corp. has been a mainstay of Boone County for over sixty years.  With only two dump trucks and an asphalt distributor, founder Jack Day and two original partners
                             (hence “Triangle”) built the company from the ground up.  Beginning with patch work and chip seal,
                             Jack and Triangle quickly expanded and, by 1964, were paving the streets of Lebanon, IN.  </p>
                         <p>Current president Steve Day stepped into a leadership role in 1975 and his brother John Day joined
