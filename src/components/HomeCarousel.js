@@ -37,10 +37,7 @@ export default function HomeCarousel() {
               onClick={() => setEnlargedSlide(slide)}
             >
               <div className="image-wrapper">
-                <div
-                  className="blur-bg"
-                  style={{ backgroundImage: `url(${slide.url})` }}
-                ></div>
+             
 
                 <img
                   src={slide.url}

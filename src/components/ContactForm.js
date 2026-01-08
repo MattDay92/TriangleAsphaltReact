@@ -52,6 +52,7 @@ function ContactForm() {
   return (
     <div className='contact-form-div'>
       <h1 className='text-center'>Contact Us</h1>
+      <h4 className='text-center'>Free Estimates Available!</h4>
       <form onSubmit={handleSubmit}>
         <label>
           Name:

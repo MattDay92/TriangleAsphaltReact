@@ -82,7 +82,7 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
                     <img id="nav-logo" className='nav-logo' src='/TriangleLogo.webp' alt='Triangle Asphalt' />
                 </div>
                 <div className="nav-info nav-info-2">
-                    <button onClick={() => { scrollToSection("contact") }} className='py-0 my-0'>Contact Us</button>
+                    <button onClick={() => { scrollToSection("contact") }} className='py-0 my-0'>Contact Us For a Free Estimate!</button>
                 </div>
             </nav>
 
@@ -91,6 +91,8 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
             <div id='socialdiv'>
                 <a href="https://www.instagram.com/triangleasphalt/" aria-label="Visit our Instagram Page" target="_blank" id="InstagramBTN" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
                 <a href='https://www.facebook.com/profile.php?id=61573295436266' aria-label='Visit our Facebook Page' target='_blank' id='FacebookBTN' rel="noopener noreferrer"><i class="fa-brands fa-square-facebook"></i></a>
+                <a href='https://www.linkedin.com/company/triangleasphalt' aria-label='Visit our LinkedIn Page' target='_blank' id='LinkedInBTN' rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+
             </div>
             <div id="banner">
                 <img class="bannerIMG" id='bannerIMG' src='TriangleLogo.webp' alt='Triangle Asphalt' />
