@@ -8,6 +8,8 @@ import Admin from './view/Admin';
 function App({ storage }) {
   const [info, setInfo] = useState(null)
 
+  const githubTest = () => {}
+
   const getInfo = () => {
     const db = getDatabase()
     const jobInfo = ref(db, `/job`)
