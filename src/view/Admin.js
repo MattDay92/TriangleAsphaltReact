@@ -208,13 +208,10 @@ export default function Admin({ info, storage }) {
                 :
                 <div className='job-card m-auto mt-5'>
                     <h2>General Application</h2>
-                    <p>Submit an application for employment at a future time.  No openings are currently available.</p>
-                    <a className='btn btn-primary' href="www.indeed.com" target='_blank'>Apply</a>
+                    <p>No openings are currently available.</p>
                 </div>}
 
             <FirebaseCarousel storage={storage} />
-
-
         </div>
     )
 }

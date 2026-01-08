@@ -20,8 +20,7 @@ export default function JobPostings({ info }) {
                     :
                     <div className='job-card nojob m-auto mt-5'>
                         <h2>General Application</h2>
-                        <p>Submit an application for employment at a future time.  No openings are currently available.</p>
-                        <a className='btn btn-primary' href="https://www.indeed.com" target='_blank'>Apply</a>
+                        <p>No openings are currently available.  Fill out the contact form below for more information on future opportunities.</p>
                     </div>}
             </div>
         </div>
