@@ -29,7 +29,7 @@ export default function HomeCarousel() {
   return (
     <>
       <div className="container photos-grid py-4">
-        <div className="row">
+        <div className="row d-flex justify-content-center">
           {slides.map((slide) => (
             <div
               key={slide.id}

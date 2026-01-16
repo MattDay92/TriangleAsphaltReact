@@ -10,6 +10,8 @@ body {
     /* background: linear-gradient(130deg, rgb(183, 183, 183), rgb(40, 40, 40) 100%);; */
     color: white;
     background: black;
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 a,
@@ -27,8 +29,8 @@ button:hover {
 }
 
 #background-img {
-    width: 100vw;
-    height: 100vh;
+    width: 105vw;
+    height: 105vh;
     object-fit: cover;
     position: fixed;
     z-index: -10;
@@ -427,7 +429,7 @@ h1 {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    padding-top: 15vh;
+    margin-top: 15vh;
     padding-bottom: 15vh;
 }
 
