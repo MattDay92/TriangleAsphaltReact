@@ -33,9 +33,9 @@ export default async function handler(req, res) {
 
         // First email: Notification to the admin
         const adminMailOptions = {
-            from: `"Triangle Asphalt Website" <${process.env.EMAIL_USER}>`,
-            replyTo: email,
-            to: 'info@triangleasphalt.com',
+            from: `"Triangle Asphalt Website" <${process.env.EMAIL_USER}>`, // must match SMTP auth
+            replyTo: email, // visitor email
+            to: 'info@triangleasphalt.com', // shared mailbox
             subject: 'Website Contact Form Submission',
             text: `Triangle Asphalt website contact form submission:
 
@@ -48,7 +48,7 @@ ${message}`
         };
 
         const userMailOptions = {
-            from: `"Triangle Asphalt" <${process.env.EMAIL_USER}>`,
+            from: `"Triangle Asphalt" <${process.env.EMAIL_USER}>`, // match auth
             to: email,
             subject: 'We Received Your Message',
             text: `Hi ${name},
@@ -64,18 +64,15 @@ ${message}
 Triangle Asphalt`
         };
 
-        // Second email: Confirmation to the user
-        const userMailOptions = {
-            from: process.env.EMAIL_USER, // Your email address
-            to: email, // To the user who submitted the form
-            subject: 'Confirmation of Your Message',
-            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\nInquiry Type:  ${inquiryText}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
-        };
 
         // Send the email to the admin
         try {
             await transporter.verify();
             console.log("SMTP connection successful");
+
+            console.log("Sending email to:", adminMailOptions.to);
+            console.log("From:", adminMailOptions.from);
+
 
             await transporter.sendMail(adminMailOptions);
             await transporter.sendMail(userMailOptions);
