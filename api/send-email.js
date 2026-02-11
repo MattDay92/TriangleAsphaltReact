@@ -22,22 +22,46 @@ export default async function handler(req, res) {
         }
 
         const transporter = nodemailer.createTransport({
-            host: 'secure.emailsrvr.com',
-            port: 465, // Use 587 if not using SSL
-            secure: true, // Set to false if using port 587 (TLS)
+            host: 'smtp.office365.com',
+            port: 587, // Use 587 if not using SSL
+            secure: false, // Set to false if using port 587 (TLS)
             auth: {
                 user: process.env.EMAIL_USER, // Your Rackspace email
                 pass: process.env.EMAIL_PASSWORD, // Your Rackspace email password
-            },
+            }
         });
 
         // First email: Notification to the admin
         const adminMailOptions = {
-            from: process.env.EMAIL_USER, // ✅ Use your Rackspace email here
-            replyTo: email, // Allows replies to go to the sender
-            to: process.env.EMAIL_USER, // Your email address
-            subject: 'New Contact Form Submission',
-            text: `You have a new message from ${name} (${email}):\n\nInquiry Type: ${inquiryType}\n\n${message}`,
+            from: `"Triangle Asphalt Website" <${process.env.EMAIL_USER}>`,
+            replyTo: email,
+            to: 'info@triangleasphalt.com',
+            subject: 'Website Contact Form Submission',
+            text: `Triangle Asphalt website contact form submission:
+
+Name: ${name}
+Email: ${email}
+Inquiry Type: ${inquiryText}
+
+Message:
+${message}`
+        };
+
+        const userMailOptions = {
+            from: `"Triangle Asphalt" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'We Received Your Message',
+            text: `Hi ${name},
+
+Thanks for contacting Triangle Asphalt. A team member will respond shortly.
+
+Here is a copy of your message:
+
+Inquiry Type: ${inquiryText}
+
+${message}
+
+Triangle Asphalt`
         };
 
         // Second email: Confirmation to the user
@@ -45,11 +69,14 @@ export default async function handler(req, res) {
             from: process.env.EMAIL_USER, // Your email address
             to: email, // To the user who submitted the form
             subject: 'Confirmation of Your Message',
-            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\nInquiry Type:  ${inquiryType}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
+            text: `Dear ${name},\n\nThank you for reaching out! We have received your message:\n\nInquiry Type:  ${inquiryText}\n\n${message}\n\nBest regards,\nTriangle Asphalt`,
         };
 
         // Send the email to the admin
         try {
+            await transporter.verify();
+            console.log("SMTP connection successful");
+
             await transporter.sendMail(adminMailOptions);
             await transporter.sendMail(userMailOptions);
             return res.status(200).json({ message: 'Emails sent successfully!' });
