@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Browning from '../components/images/browning.png'
 import Capitol from '../components/images/capitol.jpg'
 import Compass from '../components/images/compass.png'
@@ -24,50 +24,27 @@ const images = [
 ];
 
 const Partners = () => {
-  const scrollRef = useRef(null);
 
-  const extendedImages = [...images, ...images, ...images];
-
-  useEffect(() => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const singleSetWidth = container.scrollWidth / 3;
-    container.scrollLeft = singleSetWidth;
-
-    const speed = 0.5; // lower = slower scroll
-
-    let animationFrame;
-
-    const autoScroll = () => {
-      container.scrollLeft += speed;
-
-      if (container.scrollLeft >= singleSetWidth * 2) {
-        container.scrollLeft = singleSetWidth;
-      }
-
-      animationFrame = requestAnimationFrame(autoScroll);
-    };
-
-    autoScroll();
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  // duplicate once so loop looks continuous
+  const extendedImages = [...images, ...images];
 
   return (
     <div className="partners-wrapper">
-      <div
-        ref={scrollRef}
-        className="partners-carousel no-user-scroll"
-      >
-        {extendedImages.map((src, index) => (
-          <div key={index} className="partner-card">
-            <img src={src} alt={`partner-${index}`} />
-          </div>
-        ))}
+      <div className="fade-left" />
+      <div className="fade-right" />
+
+      <div className="partners-viewport">
+        <div className="partners-track">
+          {extendedImages.map((src, index) => (
+            <div key={index} className="partner-card">
+              <img src={src} alt={`partner-${index}`} draggable="false" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Partners;
+
