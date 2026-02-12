@@ -5,6 +5,7 @@ import ContactForm from '../components/ContactForm.js'
 import Footer from '../components/Footer.js'
 import BackgroundImage from '../components/BackgroundImage.js'
 import HomeCarousel from '../components/HomeCarousel.js'
+import Partners from '../components/Partners.js'
 
 export default function Home({ info, nojob, featuredInfo, storage }) {
     const [zoom, setZoom] = useState(1)
@@ -154,10 +155,13 @@ export default function Home({ info, nojob, featuredInfo, storage }) {
                 </div>
             </div>
 
-            
-
             <div id='carousel'>
                 <HomeCarousel />
+            </div>
+
+            <div id='partners'>
+                <h2>Proudly Partnered With</h2>
+                <Partners />
             </div>
 
             <div id='careers'>
